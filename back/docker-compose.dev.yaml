@@ -1,0 +1,20 @@
+version: "3.1"
+
+services:
+  db:
+    image: postgres:12.3
+    container_name: infrainvent-db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Secret123
+    ports:
+      - 5436:5432
+    volumes:
+      - ./db:/var/lib/postgresql/data:delegated
+      - ./dumps:/mnt/dumps:delegated
+    networks:
+      - infrainvent-nw
+
+networks:
+  infrainvent-nw:
+    driver: bridge
