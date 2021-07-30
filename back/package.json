@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/app.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/app.ts",
     "test": "npm run test"
   },
   "author": "",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "knex": "^0.95.8"
+    "knex": "^0.95.8",
+    "tsconfig-paths": "^3.10.1"
   }
 }
